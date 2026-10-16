@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0710">
+  <meta name="description" content="Palak Chauhan's personal portfolio showcasing AI/ML projects, programming skills and education.">
+  <title>Palak Chauhan | Personal Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0710;
+      --card: #15101c;
+      --pink: #ff72ca;
+      --purple: #c69aff;
+      --text: #f8f1fc;
+      --muted: #c2b5cc;
+      --border: #392543;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11, 7, 16, 0.94);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--pink);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--pink);
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--pink);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 76px 0;
+      scroll-margin-top: 70px;
+    }
+
+    .hero {
+      min-height: 510px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(ellipse at 85% 15%, #42204455, transparent 40%),
+        radial-gradient(ellipse at 5% 80%, #51274b33, transparent 35%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--pink);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 4.5rem);
+      line-height: 1.15;
+      margin: 12px 0;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero h2 {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .hero p, .section-intro {
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 27px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 30px;
+      padding: 11px 22px;
+      border: 1px solid var(--pink);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 22px #ff72ca33;
+    }
+
+    .btn-primary {
+      color: #1b0a18;
+      background: linear-gradient(100deg, var(--pink), var(--purple));
+      border: none;
+    }
+
+    .btn-outline {
+      color: var(--text);
+      background: transparent;
+    }
+
+    .hero-art {
+      min-height: 290px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: linear-gradient(145deg, #21152d, #110b18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: #ff72ca16;
+      filter: blur(10px);
+    }
+
+    .code-art {
+      position: relative;
+      text-align: center;
+      padding: 25px;
+    }
+
+    .code-icon {
+      color: var(--pink);
+      font-size: 5rem;
+      line-height: 1.3;
+    }
+
+    .code-art h3 {
+      font-size: 1.5rem;
+    }
+
+    .code-art p {
+      color: var(--purple);
+      margin-top: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      margin-bottom: 10px;
+    }
+
+    .section-title span {
+      color: var(--pink);
+    }
+
+    .about-card, .info-card, .project-card, .contact-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, #17111f, #100b16);
+      border-radius: 20px;
+    }
+
+    .about-card {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about-card p {
+      color: var(--muted);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .stat {
+      background: #21152c;
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--pink);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 28px;
+    }
+
+    .skill {
+      text-align: center;
+      padding: 20px 10px;
+      border-radius: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+      border-color: var(--pink);
+    }
+
+    .skill .symbol {
+      display: block;
+      color: var(--pink);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .skill span:last-child {
+      font-size: 0.9rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .project-card {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--pink);
+    }
+
+    .project-icon {
+      font-size: 2.3rem;
+      margin-bottom: 13px;
+    }
+
+    .project-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 17px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+
+    .tags span {
+      border: 1px solid var(--border);
+      color: var(--purple);
+      border-radius: 20px;
+      padding: 4px 9px;
+      font-size: 0.72rem;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .project-links .btn {
+      padding: 8px 14px;
+      font-size: 0.8rem;
+    }
+
+    .disclaimer {
+      font-size: 0.76rem !important;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      margin-top: 15px;
+    }
+
+    .education-card {
+      margin-top: 25px;
+      padding: 28px;
+      border-left: 3px solid var(--pink);
+      border-radius: 0 16px 16px 0;
+      background: var(--card);
+    }
+
+    .education-card h3 {
+      margin-bottom: 6px;
+    }
+
+    .education-card p {
+      color: var(--muted);
+    }
+
+    .contact-card {
+      margin-top: 25px;
+      padding: 35px;
+      text-align: center;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin: 12px auto 22px;
+      max-width: 570px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer span {
+      color: var(--pink);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        min-height: 230px;
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        min-height: 65px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        padding: 20px 5%;
+        background: #110b18;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 65px 0;
+      }
+
+      .about-card {
+        grid-template-columns: 1fr;
+        padding: 22px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-card {
+        padding: 25px 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a href="#home" class="logo">♡ Palak Chauhan</a>
+
+      <button class="menu-btn" id="menuBtn"
+        aria-label="Toggle navigation" aria-expanded="false">
+        ☰ Menu
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Welcome to my portfolio</div>
+          <h1>Hi, I'm <span class="gradient">Palak Chauhan</span></h1>
+          <h2>BTech CSE Student | Aspiring AI/ML Developer</h2>
+
+          <p>
+            I'm a second-year Computer Science and Engineering student at
+            Uttaranchal University, Dehradun. I enjoy learning programming,
+            exploring Machine Learning, and building practical projects.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">Explore My Projects ↗</a>
+            <a class="btn btn-outline" href="#contact">Let's Connect</a>
+          </div>
+        </div>
+
+        <div class="hero-art reveal" aria-label="Coding illustration">
+          <div class="code-art">
+            <div class="code-icon">&lt;/&gt;</div>
+            <h3>Dream. Code. Create.</h3>
+            <p>Learning • Building • Growing ✦</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title reveal">About <span>Me</span></h2>
+
+        <div class="about-card reveal">
+          <div>
+            <h3>Curious mind, continuous learner.</h3>
+            <p>
+              I'm interested in Artificial Intelligence, Machine Learning,
+              and software development. I believe in learning by building
+              projects, solving problems, and improving my skills step by step.
+              My goal is to keep growing as a developer and turn ideas into
+              useful applications.
+            </p>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>9.55</strong>
+              <span>Current CGPA / 10</span>
+            </div>
+            <div class="stat">
+              <strong>AI/ML</strong>
+              <span>Area of Interest</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title reveal">Technical <span>Skills</span></h2>
+        <p class="section-intro reveal">
+          Technologies and concepts I am learning and applying in my projects.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill reveal"><span class="symbol">Py</span><span>Python</span></div>
+          <div class="skill reveal"><span class="symbol">C</span><span>C Programming</span></div>
+          <div class="skill reveal"><span class="symbol">5</span><span>HTML</span></div>
+          <div class="skill reveal"><span class="symbol">3</span><span>CSS</span></div>
+          <div class="skill reveal"><span class="symbol">DB</span><span>MySQL</span></div>
+          <div class="skill reveal"><span class="symbol">ML</span><span>Machine Learning</span></div>
+          <div class="skill reveal"><span class="symbol">ST</span><span>Streamlit</span></div>
+          <div class="skill reveal"><span class="symbol">DS</span><span>Data Structures</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title reveal">My <span>Projects</span></h2>
+        <p class="section-intro reveal">
+          A selection of projects built through hands-on practice and learning.
+        </p>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-icon">♡</div>
+            <h3>Heart Disease Prediction</h3>
+            <p>
+              A Machine Learning application built with Python and Streamlit
+              that estimates heart-disease risk from user-provided inputs.
+            </p>
+            <div class="tags">
+              <span>Python</span><span>Machine Learning</span>
+              <span>Streamlit</span><span>Joblib</span>
+            </div>
+            <div class="project-links">
+              <a class="btn btn-primary"
+                href="https://heart-disease-prediction-tj6syshwwgi62njukik9qy8.streamlit.app/"
+                target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+              <a class="btn btn-outline"
+                href="https://github.com/palak-chauhan-ai"
+                target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+            <p class="disclaimer">
+              Educational project only. It is not a medical diagnostic tool
+              and should not be used for medical decisions.
+            </p>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-icon">⌘</div>
+            <h3>Python Applications</h3>
+            <p>
+              Beginner-friendly applications developed to practise Python
+              programming, logic, functions, and working with user input.
+            </p>
+            <div class="tags">
+              <span>Python</span><span>Problem Solving</span>
+            </div>
+            <ul style="color: var(--muted); padding-left: 20px; margin-bottom: 20px;">
+              <li>Password Generator</li>
+              <li>To-Do List</li>
+              <li>Rock Paper Scissors</li>
+              <li>Contact Book</li>
+            </ul>
+            <div class="project-links">
+              <a class="btn btn-outline"
+                href="https://github.com/palak-chauhan-ai"
+                target="_blank" rel="noopener noreferrer">Explore GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-icon">&lt;/&gt;</div>
+            <h3>Personal Portfolio Website</h3>
+            <p>
+              A responsive personal website presenting my education, technical
+              skills, interests, and projects in one place.
+            </p>
+            <div class="tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a class="btn btn-outline"
+                href="https://github.com/palak-chauhan-ai/portfolio-website"
+                target="_blank" rel="noopener noreferrer">View Repository ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title reveal">My <span>Education</span></h2>
+
+        <div class="education-card reveal">
+          <div class="eyebrow">Current Education</div>
+          <h3>Bachelor of Technology — Computer Science and Engineering</h3>
+          <p>Uttaranchal University, Dehradun</p>
+          <p>Current CGPA: <strong style="color: var(--pink);">9.55 / 10</strong></p>
+          <p>Interest areas: Artificial Intelligence and Machine Learning</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title reveal">Let's <span>Connect</span></h2>
+
+        <div class="contact-card reveal">
+          <h3>Have an opportunity or project in mind?</h3>
+          <p>
+            I'm always interested in learning, collaborating on projects,
+            and connecting with people in technology.
+          </p>
+          <a class="btn btn-primary"
+            href="https://github.com/palak-chauhan-ai"
+            target="_blank" rel="noopener noreferrer">Visit My GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Made with <span>♥</span> by Palak Chauhan · <span id="year"></span>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>
